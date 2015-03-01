@@ -1,0 +1,11 @@
+# idea project files
+*/.idea/
+
+# ignore mac specific files
+.DS_Store
+
+*/.gradle
+*/local.properties
+*/build
+
+*/.gradle/
