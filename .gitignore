@@ -1,5 +1,6 @@
 # idea project files
 */.idea/
+.idea/
 
 # ignore mac specific files
 .DS_Store
