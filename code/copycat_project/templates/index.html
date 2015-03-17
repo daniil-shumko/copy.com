@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load staticfiles %}
 <html>
 
     <head>
@@ -8,7 +9,7 @@
     <body>
         <h1>Cat says...</h1>
         mauuuu <strong>{{ boldmessage }}</strong><br />
-
+        <img src="{% static "images/logo.png" %}" alt="Picture of logo" /> <!-- New line -->
     </body>
 
 </html>
