@@ -47,14 +47,24 @@ def index(request, category_name=0):
 
 
 def upload(request):
-    context_dict = {'categories': category_list}
+    # TODO: after upload make it show the image in image view
+    context_dict = {'categories': category_list, 'page_name': 'Image Upload'}
 
-    return render(request, 'index.html', context_dict)
+    if request.method == 'POST':
+        if 'form' in request.POST:
+            pass
+
+    return render(request, 'upload.html', context_dict)
 
 
 # Image View for single image page
 def view(request, url_image_name):
-    context_dict = {'categories': category_list}
+    context_dict = {'categories': category_list, 'page_name': 'Image View'}
+
+    try:
+        context_dict['image'] = Image.objects.get(url_image_name=url_image_name)
+    except Image.DoesNotExist:
+        return index(request)
 
     return render(request, 'index.html', context_dict)
 
