@@ -59,6 +59,8 @@ def upload(request):
 
 # Image View for single image page
 def view(request, url_image_name):
+    print(url_image_name)
+
     context_dict = {'categories': category_list, 'page_name': 'Image View'}
 
     try:
@@ -66,5 +68,5 @@ def view(request, url_image_name):
     except Image.DoesNotExist:
         return index(request)
 
-    return render(request, 'index.html', context_dict)
+    return render(request, 'upload.html', context_dict)
 
