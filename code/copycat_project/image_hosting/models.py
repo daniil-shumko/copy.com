@@ -10,7 +10,7 @@ class Image(models.Model):
     category = models.ForeignKey(Category)
     caption = models.CharField(max_length=128)
     url_image_name = models.CharField(max_length=128, unique=True)
-    timestamp = models.DateTimeField()
+    timestamp = models.DateTimeField(auto_now=True)
     views = models.IntegerField(default=0)
     up_votes = models.IntegerField(default=0)
     down_votes = models.IntegerField(default=0)
