@@ -1,15 +1,30 @@
 <!DOCTYPE html>
-{% load staticfiles %}
 <html>
-
     <head>
         <title>copyCAT</title>
     </head>
 
     <body>
-        <h1>Cat says...</h1>
-        mauuuu <strong>{{ boldmessage }}</strong><br />
-        <img src="{% static "images/logo.png" %}" alt="Picture of logo" /> <!-- New line -->
-    </body>
+        <h1>Cat says... mauuuuu!</h1>
 
+        {% if categories %}
+            <ul>
+                {% for category in categories %}
+                <li>{{ category.name }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no categories present.</strong>
+        {% endif %}
+
+        {% if images %}
+            <ul>
+                {% for image in images %}
+                    <li>{{ image.caption }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <strong>There are no image present.</strong>
+        {% endif %}
+    </body>
 </html>

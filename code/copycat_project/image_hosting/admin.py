@@ -3,8 +3,11 @@ from image_hosting.models import Category, Image
 
 
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('url_image_name', 'caption', 'category')
+    list_display = ('id', 'url_image_name', 'caption', 'category', 'timestamp')
 
 
-admin.site.register(Category)
+class CatAdmin(admin.ModelAdmin):
+    list_display = ('id', 'name')
+
+admin.site.register(Category, CatAdmin)
 admin.site.register(Image, ImageAdmin)
