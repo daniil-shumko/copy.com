@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from image_hosting.models import Category, Image
+import random
 from django.http import HttpResponse
 
 category_list = Category.objects.order_by('id')  # always pass all categories to every page
@@ -58,7 +59,7 @@ def upload(request):
 
 
 # Image View for single image page
-def view(request, url_image_name):
+def view_image(request, url_image_name):
     print(url_image_name)
 
     context_dict = {'categories': category_list, 'page_name': 'Image View'}
@@ -68,5 +69,39 @@ def view(request, url_image_name):
     except Image.DoesNotExist:
         return index(request)
 
-    return render(request, 'upload.html', context_dict)
+    return render(request, 'view.html', context_dict)
 
+
+def cat_pro(request):
+    return index(request, 'pro')
+
+
+def cat_funny(request):
+    return index(request, 'funny')
+
+
+def cat_other(request):
+    return index(request, 'other')
+
+
+def cat_up(request):
+    return index(request, 'up')
+
+
+def cat_down(request):
+    return index(request, 'down')
+
+
+def cat_recent(request):
+    return index(request, 'recent')
+
+
+def random_image(request):
+    try:
+        count = Image.objects.count()
+        rnd = random.randint(0, count)
+        url_image_name = Image.objects.get(id=rnd).url_image_name
+    except Image.DoesNotExist:
+        return index(request)
+
+    return view_image(request, url_image_name)
