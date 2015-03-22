@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from image_hosting.models import Category, Image
 import random
+from image_hosting.forms import UploadForm
 from django.http import HttpResponse
 
 category_list = Category.objects.order_by('id')  # always pass all categories to every page
@@ -54,6 +55,31 @@ def upload(request):
     if request.method == 'POST':
         if 'form' in request.POST:
             pass
+
+    if request.method == 'POST':
+        form = UploadForm(request.POST)
+        try:
+            cat = Category.objects.get(name=form.category)
+        except Category.DoesNotExist:
+            cat = None
+
+        if form.is_valid():
+            if cat:
+                image = form.save(commit=False)
+                image.category = cat
+                image.views = 0
+                image.up_votes = 0
+                image.down_votes = 0
+                image.url_image_name = 'madtest.jpg'
+                image.save()
+                # probably better to use a redirect here.
+                return view_image(request, 'madtest.jpg')
+        else:
+            print form.errors
+    else:
+        form = UploadForm()
+
+    context_dict['form'] = form
 
     return render(request, 'upload.html', context_dict)
 
