@@ -66,7 +66,7 @@ def upload(request):
             image.save()
             # probably better to use a redirect here.
 
-            return view_image(request, clean_image_name(image.image.name))
+            return view_image(request, image.image.name)
         else:
             print form.errors
     else:
@@ -80,9 +80,8 @@ def upload(request):
 # Image View for single image page. Thsi take image name without "images/"
 def view_image(request, image_name):
     context_dict = {'page_name': 'Image View'}
-
     try:
-        context_dict['image'] = Image.objects.get(image=to_url_image_name(image_name))
+        context_dict['image'] = Image.objects.get(image=image_name)
     except Image.DoesNotExist:
         return index(request)
 
@@ -122,14 +121,6 @@ def random_image(request):
     except Image.DoesNotExist:
         return index(request)
 
-    return view_image(request, clean_image_name(image_name))
+    return view_image(request, image_name)
 
 
-# this is to remove "images/" from the image.name
-def clean_image_name(image_url):
-    return image_url[7:]
-
-
-# this is to add "images/" to the image name
-def to_url_image_name(name):
-    return "images/"+name

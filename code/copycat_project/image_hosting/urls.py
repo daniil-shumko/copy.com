@@ -6,7 +6,7 @@ from image_hosting import views
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
         url(r'^upload/$', views.upload, name='upload'),
-        url(r'^image_view/(?P<image_name>[\w.]{0,256})$', views.view_image, name='view'),
+        url(r'^image_view/(?P<image_name>[\w.,/_\-]{0,256})$', views.view_image, name='view'),
         url(r'^professional/$', views.cat_pro, name='pro'),
         url(r'^funny/$', views.cat_funny, name='funny'),
         url(r'^other/$', views.cat_other, name='other'),
