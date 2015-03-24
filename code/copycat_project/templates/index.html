@@ -21,7 +21,8 @@
         {% if images %}
             <ul>
                 {% for image in images %}
-                    <li>{{ image.caption }}</li>
+                    <li>{{ image.caption }} and {{ image.image }}</li>
+                    <li><img src="/media/{{ image.image }}"></li>
                 {% endfor %}
             </ul>
         {% else %}

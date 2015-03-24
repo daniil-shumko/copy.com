@@ -52,28 +52,35 @@ def upload(request):
     # TODO: after upload make it show the image in image view
     context_dict = {'categories': category_list, 'page_name': 'Image Upload'}
 
-    if request.method == 'POST':
-        if 'form' in request.POST:
-            pass
+    # if request.method == 'POST':
+    # if 'form' in request.POST:
+    #         pass
 
     if request.method == 'POST':
-        form = UploadForm(request.POST)
-        try:
-            cat = Category.objects.get(name=form.category)
-        except Category.DoesNotExist:
-            cat = None
-
+        form = UploadForm(request.POST, request.FILES)
+        print("Form Exists")
         if form.is_valid():
-            if cat:
-                image = form.save(commit=False)
-                image.category = cat
-                image.views = 0
-                image.up_votes = 0
-                image.down_votes = 0
-                image.url_image_name = 'madtest.jpg'
-                image.save()
-                # probably better to use a redirect here.
-                return view_image(request, 'madtest.jpg')
+            print("Form is valid")
+            print form.cleaned_data
+            # try:
+            # cat = Category.objects.get(name=form.selected)
+            #     print("Got the CAT")
+            # except Category.DoesNotExist:
+            #     print "NO CAT"
+            #     cat = None
+
+            #if cat:
+            image = form.save(commit=False)
+            #image.category = form.category
+            #image.caption = form.caption
+            #image.image = form.image
+            image.views = 0
+            image.up_votes = 0
+            image.down_votes = 0
+            image.save()
+            # probably better to use a redirect here.
+            print("image must be saved")
+            return view_image(request, 'funnytest.jpg')
         else:
             print form.errors
     else:
@@ -91,7 +98,7 @@ def view_image(request, url_image_name):
     context_dict = {'categories': category_list, 'page_name': 'Image View'}
 
     try:
-        context_dict['image'] = Image.objects.get(url_image_name=url_image_name)
+        context_dict['image'] = Image.objects.get(image=url_image_name)
     except Image.DoesNotExist:
         return index(request)
 
@@ -126,7 +133,7 @@ def random_image(request):
     try:
         count = Image.objects.count()
         rnd = random.randint(0, count)
-        url_image_name = Image.objects.get(id=rnd).url_image_name
+        url_image_name = Image.objects.get(id=rnd).image
     except Image.DoesNotExist:
         return index(request)
 

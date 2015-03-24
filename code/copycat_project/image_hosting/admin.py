@@ -3,7 +3,7 @@ from image_hosting.models import Category, Image
 
 
 class ImageAdmin(admin.ModelAdmin):
-    list_display = ('id', 'url_image_name', 'caption', 'category', 'timestamp')
+    list_display = ('id', 'image', 'caption', 'category', 'timestamp')
 
 
 class CatAdmin(admin.ModelAdmin):

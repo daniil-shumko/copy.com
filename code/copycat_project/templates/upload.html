@@ -5,7 +5,7 @@
     <title>Upload</title>
 </head>
 <body>
-<form enctype="multipart/form-data" id="upload_form" method="post" action="/image_hosting/upload/">
+<form enctype="multipart/form-data" id="upload_form" method="post" action="{% url 'upload' %}">
 
     {% csrf_token %}
     {% for hidden in form.hidden_fields %}
