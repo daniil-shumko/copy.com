@@ -4,13 +4,10 @@ import random
 from image_hosting.forms import UploadForm
 from django.http import HttpResponse
 
-# TODO: get rid of this
-category_list = Category.objects.order_by('id')  # always pass all categories to every page
-
 
 #  category_name must ether pro, funny or other
 def index(request, category_name=0):
-    context_dict = {'categories': category_list}
+    context_dict = {}
 
     # TODO: make ajax so you can show more images when page scrols to the end
     image_list = ''
@@ -51,7 +48,7 @@ def index(request, category_name=0):
 
 def upload(request):
     # TODO: after upload make it show the image in image view
-    context_dict = {'categories': category_list, 'page_name': 'Image Upload'}
+    context_dict = {'page_name': 'Image Upload'}
 
     # if request.method == 'POST':
     # if 'form' in request.POST:
@@ -83,7 +80,7 @@ def upload(request):
 
 # Image View for single image page. Thsi take image name without "images/"
 def view_image(request, image_name):
-    context_dict = {'categories': category_list, 'page_name': 'Image View'}
+    context_dict = {'page_name': 'Image View'}
 
     try:
         context_dict['image'] = Image.objects.get(image=to_url_image_name(image_name))

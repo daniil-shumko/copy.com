@@ -8,15 +8,14 @@
         <h1>Cat says... mauuuuu!</h1>
         <h1>{{ page_name }}</h1>
 
-        {% if categories %}
+
             <ul>
-                {% for category in categories %}
-                <li>{{ category.name }}</li>
-                {% endfor %}
+
+                <li>Pro</li>
+                <li>Funny</li>
+                <li>Other</li>
+
             </ul>
-        {% else %}
-            <strong>There are no categories present.</strong>
-        {% endif %}
 
         {% if images %}
             <ul>
