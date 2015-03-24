@@ -1,6 +1,7 @@
 # idea project files
 */.idea/
 .idea/
+Thumbs.db
 
 # ignore mac specific files
 .DS_Store
