@@ -42,7 +42,7 @@ def index(request, category_name=0):
     except Category.DoesNotExist:
         pass
 
-    context_dict['images'] = image_list
+    context_dict['images'] = split_images(image_list)
     return render(request, 'image_hosting/index.html', context_dict)
 
 
@@ -124,3 +124,16 @@ def random_image(request):
     return view_image(request, image_name)
 
 
+def split_images(images):
+    chunk = []
+    chunks = []
+    n = 2  # changing this number will make images to display in multiple colums on the index page
+
+    for x in range(0, len(images), n):
+        # Extract n elements
+        chunk = images[x:x + n]
+        # Add them to list
+        chunks.append(chunk)
+
+    # Return the new list
+    return chunks
