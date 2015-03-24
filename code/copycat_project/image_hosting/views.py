@@ -4,6 +4,7 @@ import random
 from image_hosting.forms import UploadForm
 from django.http import HttpResponse
 
+# TODO: get rid of this
 category_list = Category.objects.order_by('id')  # always pass all categories to every page
 
 
@@ -68,7 +69,8 @@ def upload(request):
             image.down_votes = 0
             image.save()
             # probably better to use a redirect here.
-            return view_image(request, 'funnytest.jpg')
+
+            return view_image(request, clean_image_name(image.image.name))
         else:
             print form.errors
     else:
@@ -79,14 +81,12 @@ def upload(request):
     return render(request, 'upload.html', context_dict)
 
 
-# Image View for single image page
-def view_image(request, url_image_name):
-    print(url_image_name)
-
+# Image View for single image page. Thsi take image name without "images/"
+def view_image(request, image_name):
     context_dict = {'categories': category_list, 'page_name': 'Image View'}
 
     try:
-        context_dict['image'] = Image.objects.get(image=url_image_name)
+        context_dict['image'] = Image.objects.get(image=to_url_image_name(image_name))
     except Image.DoesNotExist:
         return index(request)
 
@@ -120,9 +120,20 @@ def cat_recent(request):
 def random_image(request):
     try:
         count = Image.objects.count()
-        rnd = random.randint(0, count)
-        url_image_name = Image.objects.get(id=rnd).image
+        rnd = random.randint(1, count)
+        print rnd
+        image_name = Image.objects.get(id=rnd).image.name
     except Image.DoesNotExist:
         return index(request)
 
-    return view_image(request, url_image_name)
+    return view_image(request, clean_image_name(image_name))
+
+
+# this is to remove "images/" from the image.name
+def clean_image_name(image_url):
+    return image_url[7:]
+
+
+# this is to add "images/" to the image name
+def to_url_image_name(name):
+    return "images/"+name
