@@ -37,7 +37,7 @@ def index(request, category_name=0):
             context_dict['page_name'] = 'Most Recent'
         else:  # category_name == 'popular':
             image_list = Image.objects.order_by('-views', '-up_votes')
-            context_dict['page_name'] = 'Most Popular'
+            context_dict['page_name'] = 'Home | Most Popular'
 
     except Category.DoesNotExist:
         pass
