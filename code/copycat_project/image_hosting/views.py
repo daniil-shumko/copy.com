@@ -58,28 +58,16 @@ def upload(request):
 
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
-        print("Form Exists")
-        if form.is_valid():
-            print("Form is valid")
-            print form.cleaned_data
-            # try:
-            # cat = Category.objects.get(name=form.selected)
-            #     print("Got the CAT")
-            # except Category.DoesNotExist:
-            #     print "NO CAT"
-            #     cat = None
 
-            #if cat:
+        if form.is_valid():
+            form.clean_image()
+
             image = form.save(commit=False)
-            #image.category = form.category
-            #image.caption = form.caption
-            #image.image = form.image
             image.views = 0
             image.up_votes = 0
             image.down_votes = 0
             image.save()
             # probably better to use a redirect here.
-            print("image must be saved")
             return view_image(request, 'funnytest.jpg')
         else:
             print form.errors

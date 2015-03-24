@@ -6,12 +6,16 @@ from image_hosting.models import Image
 
 class UploadForm(forms.ModelForm):
     caption = forms.CharField(max_length=128, help_text="Caption:")
-    #cat = forms.ChoiceField(choices=CAT_CHOICES, required=True)
     image = forms.ImageField()
-    #url_image_name = forms.CharField(widget=forms.HiddenInput(), initial='')
-    #views = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-    #up_votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
-    #down_votes = forms.IntegerField(widget=forms.HiddenInput(), initial=0)
+
+    def clean_image(self):
+        image_file = self.cleaned_data.get('image', False)
+        if image_file:
+            if image_file._size > 10 * 1024 * 1024:
+                raise forms.ValidationError("Image file too large ( > 10mb )")
+            return image_file
+        else:
+            raise forms.ValidationError("Couldn't read uploaded image")
 
     # An inline class to provide additional information on the form.
     class Meta:
