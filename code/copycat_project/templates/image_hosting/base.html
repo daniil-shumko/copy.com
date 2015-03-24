@@ -1,0 +1,197 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap-theme.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+
+    <title>{% block title %}copyCAT{% endblock title %}</title>
+
+    <div id="container" style="white-space:nowrap">
+
+        <div id="image" style="display:inline;">
+            <img src="/media/logo.png"
+                 style="width:100%;height:250px"/>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            // Remove Search if user Resets Form or hits Escape!
+            $('body, .navbar-collapse form[role="search"] button[type="reset"]').on('click keyup', function (event) {
+                console.log(event.currentTarget);
+                if (event.which == 27 && $('.navbar-collapse form[role="search"]').hasClass('active') ||
+                        $(event.currentTarget).attr('type') == 'reset') {
+                    closeSearch();
+                }
+            });
+
+            function closeSearch() {
+                var $form = $('.navbar-collapse form[role="search"].active')
+                $form.find('input').val('');
+                $form.removeClass('active');
+            }
+
+            // Show Search if form is not active // event.preventDefault() is important, this prevents the form from submitting
+            $(document).on('click', '.navbar-collapse form[role="search"]:not(.active) button[type="submit"]', function (event) {
+                event.preventDefault();
+                var $form = $(this).closest('form'),
+                        $input = $form.find('input');
+                $form.addClass('active');
+                $input.focus();
+
+            });
+            // ONLY FOR DEMO // Please use $('form').submit(function(event)) to track from submission
+            // if your form is ajax remember to call `closeSearch()` to close the search container
+            $(document).on('click', '.navbar-collapse form[role="search"].active button[type="submit"]', function (event) {
+                event.preventDefault();
+                var $form = $(this).closest('form'),
+                        $input = $form.find('input');
+                $('#showSearchTerm').text($input.val());
+                closeSearch()
+            });
+        });
+    </script>
+
+    <style>
+        .main {
+            padding: 20px;
+            border: 1px solid;
+            border-color: gray;
+
+            -webkit-box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.4);
+            box-shadow: 0px 3px 12px rgba(23, 69, 88, .5);
+
+            -webkit-border-radius: 12px;
+            border-radius: 7px;
+
+            max-width: 1000px;
+            min-width: 350px;
+        }
+
+        .center {
+            text-align: center;
+            margin: 0 auto;
+        }
+
+        body {
+            padding: 60px 0px;
+        }
+
+        .navbar-collapse {
+            position: relative;
+            padding-top: 30px !important;
+            max-height: 270px;
+        }
+
+        .navbar-collapse form[role="search"] {
+            position: absolute;
+            top: 0px;
+            right: 0px;
+            width: 100%;
+            padding: 0px;
+            margin: 0px;
+            z-index: 0;
+        }
+
+        .navbar-collapse form[role="search"] button,
+        .navbar-collapse form[role="search"] input {
+            padding: 8px 12px;
+            border-radius: 0px;
+            border-width: 0px;
+            color: rgb(119, 119, 119);
+            background-color: rgb(248, 248, 248);
+            border-color: rgb(231, 231, 231);
+            box-shadow: none;
+            outline: none;
+        }
+
+        .navbar-collapse form[role="search"] input {
+            padding: 16px 12px;
+            font-size: 14pt;
+            font-style: italic;
+            color: rgb(160, 160, 160);
+            box-shadow: none;
+        }
+
+        .navbar-collapse form[role="search"] button[type="reset"] {
+            display: none;
+        }
+
+        @media (min-width: 768px) {
+            .navbar-collapse {
+                padding-top: 0px !important;
+                padding-right: 38px !important;
+            }
+
+            .navbar-collapse form[role="search"] {
+                width: 38px;
+            }
+
+            .navbar-collapse form[role="search"] button,
+            .navbar-collapse form[role="search"] input {
+                padding: 15px 12px;
+            }
+
+            .navbar-collapse form[role="search"] input {
+                padding: 25px 12px;
+                font-size: 18pt;
+                opacity: 0;
+                display: none;
+            }
+
+            .navbar-collapse form[role="search"].active {
+                width: 100%;
+            }
+
+            .navbar-collapse form[role="search"].active button,
+            .navbar-collapse form[role="search"].active input {
+                display: table-cell;
+                opacity: 1;
+            }
+
+            .navbar-collapse form[role="search"].active input {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">{% block page_name_block %}Index{% endblock page_name_block %}</a>
+        </div>
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="{% url 'index' %}">Home</a></li>
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">Categories<b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{% url 'funny' %}">Funny</a></li>
+                        <li><a href="{% url 'pro' %}">Professional</a></li>
+                        <li><a href="{% url 'other' %}">Other</a></li>
+                        <li class="divider"></li>
+                        <li><a href="{% url 'recent' %}">Most Recent</a></li>
+                        <li><a href="{% url 'up_voted' %}">Most Up Voted</a></li>
+                        <li><a href="{% url 'down_voted' %}">Most Down Voted</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url 'upload' %}">Upload</a></li>
+                <li><a href="{% url 'random' %}">Random</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="main center" style="padding-bottom: 0;">{% block body_block %}{% endblock body_block %}</div>
+
+</body>
+
+</html>

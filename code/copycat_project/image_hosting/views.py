@@ -43,11 +43,10 @@ def index(request, category_name=0):
         pass
 
     context_dict['images'] = image_list
-    return render(request, 'index.html', context_dict)
+    return render(request, 'image_hosting/index.html', context_dict)
 
 
 def upload(request):
-    # TODO: after upload make it show the image in image view
     context_dict = {'page_name': 'Image Upload'}
 
     # if request.method == 'POST':
@@ -75,7 +74,7 @@ def upload(request):
 
     context_dict['form'] = form
 
-    return render(request, 'upload.html', context_dict)
+    return render(request, 'image_hosting/upload.html', context_dict)
 
 
 # Image View for single image page. Thsi take image name without "images/"
@@ -87,7 +86,7 @@ def view_image(request, image_name):
     except Image.DoesNotExist:
         return index(request)
 
-    return render(request, 'view.html', context_dict)
+    return render(request, 'image_hosting/image_view.html', context_dict)
 
 
 def cat_pro(request):

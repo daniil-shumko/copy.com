@@ -1,0 +1,20 @@
+{% extends 'image_hosting/base.html' %}
+
+{% load bootstrap_toolkit %}
+
+{% block title %}{{ page_name }}{% endblock title %}
+
+{% block page_name_block %}{{ page_name }}{% endblock page_name_block %}
+
+{% block body_block %}
+
+    <form enctype="multipart/form-data" id="upload_form" role="form" method="post" action="{% url 'upload' %}"
+          style="padding-bottom: 20px">
+        {% csrf_token %}
+        <h2 class="form-signin-heading">Upload</h2>
+        {{ form|as_bootstrap }}
+
+        <button class="btn btn-success" type="submit" name="submit">UPLOAD</button>
+    </form>
+
+{% endblock body_block %}

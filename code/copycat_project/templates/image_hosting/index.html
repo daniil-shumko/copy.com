@@ -1,0 +1,18 @@
+{% extends 'image_hosting/base.html' %}
+
+{% block title %}{{ page_name }}{% endblock title %}
+
+{% block page_name_block %}{{ page_name }}{% endblock page_name_block %}
+
+{% block body_block %}
+    {% if images %}
+        <ul>
+            {% for image in images %}
+                <li>{{ image.caption }} and {{ image.image }}</li>
+                <li><img src="/media/{{ image.image }}"></li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <strong>There are no image present.</strong>
+    {% endif %}
+{% endblock body_block %}

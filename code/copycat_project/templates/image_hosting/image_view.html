@@ -1,0 +1,58 @@
+{% extends 'image_hosting/base.html' %}
+
+{% block title %}{{ page_name }}{% endblock title %}
+
+{% block page_name_block %}{{ page_name }}{% endblock page_name_block %}
+
+{% block body_block %}
+
+    <div class="box" style="display:inline-block;width: 90%;">
+        <div class="image" style="padding-bottom: 20px;">
+            <a href="/media/{{ image.image }}">
+                <img src="/media/{{ image.image }}" class="img-thumbnail" style=";max-height:500px"/>
+            </a>
+
+            <div class="btn-group" role="group" aria-label="..." style="width:100%;">
+                <button type="button" class="btn btn-success" style="width:20%;" onclick="alert('vote up');">
+                    <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
+                </button>
+                <button type="button" class="btn btn-default" style="width:60%;" onclick="alert('refresh');">
+                    {{ image.up_votes }}/{{ image.down_votes }}
+                </button>
+                <button type="button" class="btn btn-danger" style="width:20%;" onclick="alert('vote down');">
+                    <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
+                </button>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <h3 class="panel-title" id="panel-title">Caption:</h3>
+            </div>
+            <div class="panel-body">
+                {{ image.caption }}
+            </div>
+            <div class="panel-heading">
+                <h3 class="panel-title" id="panel-title">Category:</h3>
+            </div>
+            <div class="panel-body">
+                {{ image.category.name }}
+            </div>
+            <div class="panel-heading">
+                <h3 class="panel-title" id="panel-title">Views:</h3>
+            </div>
+            <div class="panel-body">
+                {{ image.views }}
+            </div>
+            <div class="panel-heading">
+                <h3 class="panel-title" id="panel-title">Time/Date added:</h3>
+            </div>
+            <div class="panel-body">
+                {{ image.timestamp }}
+            </div>
+        </div>
+
+    </div>
+
+{% endblock body_block %}
+

@@ -5,7 +5,6 @@ from image_hosting.models import Image
 
 
 class UploadForm(forms.ModelForm):
-    caption = forms.CharField(max_length=128, help_text="Caption:")
     image = forms.ImageField()
 
     def clean_image(self):

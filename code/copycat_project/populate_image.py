@@ -16,7 +16,7 @@ def populate():
     pro_cat = get_cat("Professional")
     funny_cat = get_cat("Funny")
     other_cat = get_cat("Other")
-
+#TODO: update with new data
     # funny category
     add_img(cat=funny_cat,
             caption="Funny cat pic",
