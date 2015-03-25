@@ -164,3 +164,7 @@ def split_images(images):
 
     # Return the new list
     return chunks
+
+
+def api(request):
+    return ''

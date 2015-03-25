@@ -14,4 +14,5 @@ urlpatterns = patterns('',
         url(r'^most_up_voted/$', views.cat_up, name='up_voted'),
         url(r'^most_down_voted/$', views.cat_down, name='down_voted'),
         url(r'^random/$', views.random_image, name='random'),
-        url(r'^vote/$', views.vote_image, name='vote'))
+        url(r'^vote/$', views.vote_image, name='vote'),
+        url(r'^api/$', views.api, name='api'))
