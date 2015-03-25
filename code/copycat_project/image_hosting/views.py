@@ -128,6 +128,29 @@ def random_image(request):
     return view_image(request, image_name)
 
 
+def vote_image(request):
+    print 'yes i am here'
+    image_id = None
+    value = None
+    if request.method == 'GET':
+        image_id = request.GET['image_id']
+        value = request.GET['vote']
+
+    votes = ''
+    if image_id:
+        image = Image.objects.get(id=image_id)
+        if image:
+            if value == 'up':
+                image.up_votes += 1
+                votes = str(image.up_votes) + "/" + str(image.down_votes)
+            elif value == 'down':
+                image.down_votes += 1
+                votes = str(image.up_votes) + "/" + str(image.down_votes)
+            image.save()
+
+    return HttpResponse(votes)
+
+
 def split_images(images):
     chunk = []
     chunks = []

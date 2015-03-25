@@ -33,13 +33,13 @@
             </a>
 
             <div class="btn-group" role="group" aria-label="..." style="width:100%;">
-                <button type="button" class="btn btn-success" style="width:20%;" onclick="alert('vote up');">
+                <button type="button" class="btn btn-success" style="width:20%;" onclick="vote({{ image.id }}, 'up');">
                     <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                 </button>
-                <button type="button" class="btn btn-default" style="width:60%;" onclick="alert('refresh');">
-                    {{ image.up_votes }}/{{ image.down_votes }}
+                <button type="button" class="btn btn-default" style="width:60%;">
+                    <strong id="id_count_{{ image.id }}">{{ image.up_votes }}/{{ image.down_votes }}</strong>
                 </button>
-                <button type="button" class="btn btn-danger" style="width:20%;" onclick="alert('vote down');">
+                <button type="button" class="btn btn-danger" style="width:20%;" onclick="vote({{ image.id }}, 'down');">
                     <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                 </button>
             </div>

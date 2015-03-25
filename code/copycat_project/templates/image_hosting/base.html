@@ -48,6 +48,12 @@
                 closeSearch()
             });
         });
+
+        function vote(id, vote) {
+            $.get('{% url "vote" %}', {image_id: id, vote: vote}, function (data) {
+                $('#id_count_'+id).html(data);
+            });
+        }
     </script>
 
     <style>
@@ -150,7 +156,7 @@
     </style>
 </head>
 <body>
-<div id="container" style="max-width: 1200px;text-align: center;margin: 0 auto" >
+<div id="container" style="max-width: 1200px;text-align: center;margin: 0 auto">
     <div id="image" style="display:block;">
         <img src="/media/logo.png"
              style="width:100%;"/>
