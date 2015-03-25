@@ -81,7 +81,11 @@ def upload(request):
 def view_image(request, image_name):
     context_dict = {'page_name': 'Image View'}
     try:
-        context_dict['image'] = Image.objects.get(image=image_name)
+        image = Image.objects.get(image=image_name)
+        image.views += 1
+        image.save()
+        context_dict['image'] = image
+
     except Image.DoesNotExist:
         return index(request)
 

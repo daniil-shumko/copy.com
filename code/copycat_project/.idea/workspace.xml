@@ -25,21 +25,34 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.34151787" vertical-offset="0" max-vertical-offset="896">
+              <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+              <folding>
+                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#270#1922#0" expanded="false" />
+                <element signature="e#1950#2691#0" expanded="false" />
+                <element signature="e#2810#3134#0" expanded="false" />
+                <element signature="e#3163#3191#0" expanded="false" />
+                <element signature="e#3222#3252#0" expanded="false" />
+                <element signature="e#3283#3313#0" expanded="false" />
+                <element signature="e#3341#3368#0" expanded="false" />
+                <element signature="e#3398#3427#0" expanded="false" />
+                <element signature="e#3459#3490#0" expanded="false" />
+                <element signature="e#3524#3786#0" expanded="false" />
+                <element signature="e#3819#4146#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
       <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/templates/image_hosting/index.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="850">
               <caret line="15" column="78" selection-start-line="15" selection-start-column="45" selection-end-line="15" selection-end-column="78" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="image_view.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/templates/image_hosting/image_view.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.37126437" vertical-offset="0" max-vertical-offset="1462">
-              <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
               <folding />
             </state>
           </provider>
@@ -66,9 +79,9 @@
         <option value="$PROJECT_DIR$/templates/image_hosting/upload.html" />
         <option value="$PROJECT_DIR$/image_hosting/urls.py" />
         <option value="$PROJECT_DIR$/templates/image_hosting/index.html" />
-        <option value="$PROJECT_DIR$/image_hosting/views.py" />
         <option value="$PROJECT_DIR$/templates/image_hosting/base.html" />
         <option value="$PROJECT_DIR$/templates/image_hosting/image_view.html" />
+        <option value="$PROJECT_DIR$/image_hosting/views.py" />
       </list>
     </option>
   </component>
@@ -530,16 +543,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#270#1922#0" expanded="false" />
             <element signature="e#1950#2691#0" expanded="false" />
-            <element signature="e#2810#3065#0" expanded="false" />
-            <element signature="e#3094#3122#0" expanded="false" />
-            <element signature="e#3153#3183#0" expanded="false" />
-            <element signature="e#3214#3244#0" expanded="false" />
-            <element signature="e#3272#3299#0" expanded="false" />
-            <element signature="e#3329#3358#0" expanded="false" />
-            <element signature="e#3390#3421#0" expanded="false" />
-            <element signature="e#3455#3717#0" expanded="false" />
-            <element signature="e#3750#4077#0" expanded="false" />
+            <element signature="e#2810#3134#0" expanded="false" />
+            <element signature="e#3163#3191#0" expanded="false" />
+            <element signature="e#3222#3252#0" expanded="false" />
+            <element signature="e#3283#3313#0" expanded="false" />
+            <element signature="e#3341#3368#0" expanded="false" />
+            <element signature="e#3398#3427#0" expanded="false" />
+            <element signature="e#3459#3490#0" expanded="false" />
+            <element signature="e#3524#3786#0" expanded="false" />
+            <element signature="e#3819#4146#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -570,16 +584,17 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#270#1922#0" expanded="false" />
             <element signature="e#1950#2691#0" expanded="false" />
-            <element signature="e#2810#3065#0" expanded="false" />
-            <element signature="e#3094#3122#0" expanded="false" />
-            <element signature="e#3153#3183#0" expanded="false" />
-            <element signature="e#3214#3244#0" expanded="false" />
-            <element signature="e#3272#3299#0" expanded="false" />
-            <element signature="e#3329#3358#0" expanded="false" />
-            <element signature="e#3390#3421#0" expanded="false" />
-            <element signature="e#3455#3717#0" expanded="false" />
-            <element signature="e#3750#4077#0" expanded="false" />
+            <element signature="e#2810#3134#0" expanded="false" />
+            <element signature="e#3163#3191#0" expanded="false" />
+            <element signature="e#3222#3252#0" expanded="false" />
+            <element signature="e#3283#3313#0" expanded="false" />
+            <element signature="e#3341#3368#0" expanded="false" />
+            <element signature="e#3398#3427#0" expanded="false" />
+            <element signature="e#3459#3490#0" expanded="false" />
+            <element signature="e#3524#3786#0" expanded="false" />
+            <element signature="e#3819#4146#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -690,26 +705,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.51227677" vertical-offset="0" max-vertical-offset="1411">
-          <caret line="27" column="47" selection-start-line="27" selection-start-column="47" selection-end-line="27" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-            <element signature="e#1950#2691#0" expanded="false" />
-            <element signature="e#2810#3065#0" expanded="false" />
-            <element signature="e#3094#3122#0" expanded="false" />
-            <element signature="e#3153#3183#0" expanded="false" />
-            <element signature="e#3214#3244#0" expanded="false" />
-            <element signature="e#3272#3299#0" expanded="false" />
-            <element signature="e#3329#3358#0" expanded="false" />
-            <element signature="e#3390#3421#0" expanded="false" />
-            <element signature="e#3455#3717#0" expanded="false" />
-            <element signature="e#3750#4077#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.73913044" vertical-offset="0" max-vertical-offset="1071">
@@ -725,6 +720,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image_hosting/image_view.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6643678" vertical-offset="0" max-vertical-offset="1139">
+          <caret line="53" column="18" selection-start-line="53" selection-start-column="18" selection-end-line="53" selection-end-column="18" />
+          <folding>
+            <element signature="n#script#0;n#!!top" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/templates/image_hosting/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-9.807693" vertical-offset="0" max-vertical-offset="850">
@@ -733,11 +738,24 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image_hosting/image_view.html">
+    <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.37126437" vertical-offset="0" max-vertical-offset="1462">
-          <caret line="19" column="23" selection-start-line="19" selection-start-column="23" selection-end-line="19" selection-end-column="23" />
-          <folding />
+        <state vertical-scroll-proportion="0.34151787" vertical-offset="0" max-vertical-offset="896">
+          <caret line="95" column="32" selection-start-line="95" selection-start-column="32" selection-end-line="95" selection-end-column="32" />
+          <folding>
+            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#270#1922#0" expanded="false" />
+            <element signature="e#1950#2691#0" expanded="false" />
+            <element signature="e#2810#3134#0" expanded="false" />
+            <element signature="e#3163#3191#0" expanded="false" />
+            <element signature="e#3222#3252#0" expanded="false" />
+            <element signature="e#3283#3313#0" expanded="false" />
+            <element signature="e#3341#3368#0" expanded="false" />
+            <element signature="e#3398#3427#0" expanded="false" />
+            <element signature="e#3459#3490#0" expanded="false" />
+            <element signature="e#3524#3786#0" expanded="false" />
+            <element signature="e#3819#4146#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
