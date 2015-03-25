@@ -132,21 +132,32 @@ def vote_image(request):
     # TODO: using session check if user has already voted
     image_id = None
     value = None
+    votes = ''
     if request.method == 'GET':
         image_id = request.GET['image_id']
         value = request.GET['vote']
 
-    votes = ''
-    if image_id:
-        image = Image.objects.get(id=image_id)
-        if image:
-            if value == 'up':
-                image.up_votes += 1
-                votes = str(image.up_votes) + "/" + str(image.down_votes)
-            elif value == 'down':
-                image.down_votes += 1
-                votes = str(image.up_votes) + "/" + str(image.down_votes)
-            image.save()
+    previous_votes = request.session.get('all_votes')
+    if not previous_votes:
+        previous_votes = []
+
+    if image_id in previous_votes:
+        votes = 'already_voted'
+    else:
+        if image_id:
+            image = Image.objects.get(id=image_id)
+            if image:
+                if value == 'up':
+                    image.up_votes += 1
+                    previous_votes.append(image_id)
+                    votes = str(image.up_votes) + "/" + str(image.down_votes)
+                elif value == 'down':
+                    image.down_votes += 1
+                    previous_votes.append(image_id)
+                    votes = str(image.up_votes) + "/" + str(image.down_votes)
+                image.save()
+
+    request.session['all_votes'] = previous_votes
 
     return HttpResponse(votes)
 

@@ -51,7 +51,11 @@
 
         function vote(id, vote) {
             $.get('{% url "vote" %}', {image_id: id, vote: vote}, function (data) {
-                $('#id_count_'+id).html(data);
+                if (data == 'already_voted'){
+                    alert('You have already voted this image!')
+                }else{
+                    $('#id_count_'+id).html(data);
+                }
             });
         }
     </script>
