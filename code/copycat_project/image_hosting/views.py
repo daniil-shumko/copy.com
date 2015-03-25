@@ -129,7 +129,7 @@ def random_image(request):
 
 
 def vote_image(request):
-    print 'yes i am here'
+    # TODO: using session check if user has already voted
     image_id = None
     value = None
     if request.method == 'GET':
