@@ -12,7 +12,7 @@ def index(request, category_name=0):
     context_dict = {}
     context_dict['all_votes'] = get_all_voted_images(request)
 
-    # TODO: make ajax so you can show more images when page scrols to the end
+    # TODO: make ajax so you can show more images when page scrolls to the end. (this will never happen :))
     image_list = ''
     try:
         if category_name == 'pro':

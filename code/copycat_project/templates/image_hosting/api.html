@@ -57,32 +57,23 @@
 </p>
 <br/>
 <br/>
-<strong>Form with POST request example:</strong>
+<strong>Example form with POST request:</strong>
+
 <p>
-    &ltform enctype="multipart/form-data" id="upload_form" role="form" method="post" action="http://daniilshumko.pythonanywhere.com/image_hosting/api/"
-      style="padding-bottom: 20px"&gt<br/>
+    &ltform enctype="multipart/form-data" id="upload_form" role="form" method="post"
+    action="http://daniilshumko.pythonanywhere.com/image_hosting/api/"&gt</br>
 
-    &ltdiv class="control-group required"&gt<br/>
-        &ltlabel class="control-label" for="id_caption"&gtCaption&lt/label&gt<br/>
-        &ltdiv class="controls"&gt<br/>
-            &ltinput id="id_caption" maxlength="128" name="caption" type="text"&gt<br/>
-        &lt/div&gt<br/>
-    &lt/div&gt<br/>
-    &ltdiv class="control-group required"&gt<br/>
-        &ltlabel class="control-label" for="id_category"&gtCategory&lt/label&gt<br/>
-        &ltdiv class="controls"&gt<br/>
-            &ltinput id="id_category" maxlength="128" name="category" type="text"&gt<br/>
-        &lt/div&gt<br/>
-    &lt/div&gt<br/>
-    &ltdiv class="control-group required"&gt<br/>
-        &ltlabel class="control-label" for="id_image"&gtImage&lt/label&gt<br/>
+    &ltlabel class="control-label" for="id_caption"&gt</br>Caption&lt/label&gt</br>
+    &ltinput id="id_caption" maxlength="128" name="caption" type="text"&gt</br>
 
-        &ltdiv class="controls"&gt<br/>
-            &ltinput id="id_image" name="image" type="file"&gt<br/>
-        &lt/div&gt<br/>
-    &lt/div&gt<br/>
-    &ltbutton type="submit" name="submit"&gtUPLOAD&lt/button&gt<br/>
-&lt/form&gt<br/>
+    &ltlabel class="control-label" for="id_category"&gt</br>Category&lt/label&gt</br>
+    &ltinput id="id_category" maxlength="128" name="category" type="text"/&gt</br>
+
+    &ltlabel class="control-label" for="id_image"&gt</br>Image&lt/label&gt</br>
+    &ltinput id="id_image" name="image" type="file"/&gt</br>
+
+    &ltbutton class="btn btn-danger" type="submit" name="submit"&gt</br>UPLOAD&lt/button&gt</br>
+    &lt/form&gt</br>
 </p>
 </body>
 </html>

@@ -15,25 +15,15 @@
 
     <h2 class="form-signin-heading">Upload</h2>
 
-    <div class="control-group required">
-        <label class="control-label" for="id_caption">Caption</label>
-        <div class="controls">
-            <input id="id_caption" maxlength="128" name="caption" type="text">
-        </div>
-    </div>
-    <div class="control-group required">
-        <label class="control-label" for="id_category">Category</label>
-        <div class="controls">
-            <input id="id_category" maxlength="128" name="category" type="text">
-        </div>
-    </div>
-    <div class="control-group required">
-        <label class="control-label" for="id_image">Image</label>
+    <label class="control-label" for="id_caption">Caption</label>
+    <input id="id_caption" maxlength="128" name="caption" type="text">
 
-        <div class="controls">
-            <input id="id_image" name="image" type="file">
-        </div>
-    </div>
+    <label class="control-label" for="id_category">Category</label>
+    <input id="id_category" maxlength="128" name="category" type="text"/>
+
+    <label class="control-label" for="id_image">Image</label>
+    <input id="id_image" name="image" type="file"/>
+
     <button class="btn btn-danger" type="submit" name="submit">UPLOAD</button>
 </form>
 
