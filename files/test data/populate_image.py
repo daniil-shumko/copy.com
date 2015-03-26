@@ -130,7 +130,7 @@ def populate():
 
     add_img(cat=funny_cat,
             caption="...",
-            image="images/tumblken.jpg",
+            image="images/tumblken.jpeg",
             views=10,
             up_votes=155,
             down_votes=9,)
@@ -209,7 +209,7 @@ def populate():
 
     add_img(cat=other_cat,
             caption="ugh",
-            image="images/jooh.jpg",
+            image="images/jooh.jpeg",
             views=140,
             up_votes=1,
             down_votes=955,)
