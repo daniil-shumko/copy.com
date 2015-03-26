@@ -25,10 +25,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.39285713" vertical-offset="22" max-vertical-offset="918">
+            <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="918">
               <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
@@ -46,6 +46,39 @@
                 <element signature="e#4855#5182#0" expanded="false" />
                 <element signature="e#5224#5415#0" expanded="false" />
                 <element signature="e#5440#5449#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.33563218" vertical-offset="184" max-vertical-offset="1054">
+              <caret line="178" column="35" selection-start-line="178" selection-start-column="35" selection-end-line="178" selection-end-column="35" />
+              <folding>
+                <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/templates/image_hosting/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="799">
+              <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+              <folding>
+                <element signature="e#406#446#0#HTML" expanded="true" />
+                <element signature="e#795#814#0#HTML" expanded="true" />
+                <element signature="e#940#958#0#HTML" expanded="true" />
+                <element signature="e#1291#1309#0#HTML" expanded="true" />
+                <element signature="e#1620#1638#0#HTML" expanded="true" />
+                <element signature="e#2039#2068#0#HTML" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -73,9 +106,9 @@
         <option value="$PROJECT_DIR$/image_hosting/urls.py" />
         <option value="$PROJECT_DIR$/copycat_project/settings.py" />
         <option value="$PROJECT_DIR$/image_hosting/views.py" />
+        <option value="$PROJECT_DIR$/templates/image_hosting/image_view.html" />
         <option value="$PROJECT_DIR$/templates/image_hosting/index.html" />
         <option value="$PROJECT_DIR$/templates/image_hosting/base.html" />
-        <option value="$PROJECT_DIR$/templates/image_hosting/image_view.html" />
       </list>
     </option>
   </component>
@@ -728,27 +761,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.8206897" vertical-offset="408" max-vertical-offset="3621">
-          <caret line="66" column="0" selection-start-line="66" selection-start-column="0" selection-end-line="66" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image_hosting/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.508046" vertical-offset="0" max-vertical-offset="870">
-          <caret line="26" column="225" selection-start-line="26" selection-start-column="194" selection-end-line="26" selection-end-column="225" />
-          <folding>
-            <element signature="e#1291#1309#0#HTML" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.39285713" vertical-offset="22" max-vertical-offset="918">
+        <state vertical-scroll-proportion="0.0" vertical-offset="22" max-vertical-offset="918">
           <caret line="100" column="0" selection-start-line="100" selection-start-column="0" selection-end-line="100" selection-end-column="0" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
@@ -766,6 +781,43 @@
             <element signature="e#4855#5182#0" expanded="false" />
             <element signature="e#5224#5415#0" expanded="false" />
             <element signature="e#5440#5449#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image_hosting/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-11.115385" vertical-offset="0" max-vertical-offset="799">
+          <caret line="17" column="40" selection-start-line="17" selection-start-column="40" selection-end-line="17" selection-end-column="40" />
+          <folding>
+            <element signature="e#406#446#0#HTML" expanded="true" />
+            <element signature="e#795#814#0#HTML" expanded="true" />
+            <element signature="e#940#958#0#HTML" expanded="true" />
+            <element signature="e#1291#1309#0#HTML" expanded="true" />
+            <element signature="e#1620#1638#0#HTML" expanded="true" />
+            <element signature="e#2039#2068#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/pycharm.jar!/resources/html5-schema/html5/aria.rnc">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3325893" vertical-offset="15648" max-vertical-offset="21148">
+          <caret line="938" column="22" selection-start-line="938" selection-start-column="22" selection-end-line="938" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33563218" vertical-offset="184" max-vertical-offset="1054">
+          <caret line="178" column="35" selection-start-line="178" selection-start-column="35" selection-end-line="178" selection-end-column="35" />
+          <folding>
+            <element signature="n#script#2;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#head#0;n#html#0;n#!!top" expanded="false" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#img#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#1;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
