@@ -25,11 +25,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="views.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="views.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-0.55022323" vertical-offset="714" max-vertical-offset="1853">
-              <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="957" max-vertical-offset="1853">
+              <caret line="229" column="48" selection-start-line="229" selection-start-column="48" selection-end-line="229" selection-end-column="48" />
               <folding>
                 <element signature="e#0#35#0" expanded="true" />
                 <element signature="e#360#2005#0" expanded="false" />
@@ -47,6 +47,16 @@
                 <element signature="e#5296#5487#0" expanded="false" />
                 <element signature="e#7445#7807#0" expanded="false" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="base.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.64827585" vertical-offset="2768" max-vertical-offset="3655">
+              <caret line="196" column="25" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -94,13 +104,13 @@
         <option value="$PROJECT_DIR$/templates/api test/test.html" />
         <option value="$PROJECT_DIR$/image_hosting/forms.py" />
         <option value="$PROJECT_DIR$/populate_image.py" />
-        <option value="$PROJECT_DIR$/templates/image_hosting/base.html" />
         <option value="$PROJECT_DIR$/image_hosting/urls.py" />
         <option value="$PROJECT_DIR$/templates/image_hosting/image_view.html" />
         <option value="$PROJECT_DIR$/templates/image_hosting/index.html" />
         <option value="$PROJECT_DIR$/templates/image_hosting/api.html" />
         <option value="$PROJECT_DIR$/templates/api_test/test.html" />
         <option value="$PROJECT_DIR$/image_hosting/views.py" />
+        <option value="$PROJECT_DIR$/templates/image_hosting/base.html" />
       </list>
     </option>
   </component>
@@ -751,14 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.2735632" vertical-offset="0" max-vertical-offset="3638">
-          <caret line="14" column="0" selection-start-line="14" selection-start-column="0" selection-end-line="14" selection-end-column="51" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/templates/image_hosting/image_view.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.0812721" vertical-offset="306" max-vertical-offset="1666">
@@ -813,8 +815,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/image_hosting/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.55022323" vertical-offset="714" max-vertical-offset="1853">
-          <caret line="49" column="20" selection-start-line="49" selection-start-column="20" selection-end-line="49" selection-end-column="20" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="957" max-vertical-offset="1853">
+          <caret line="229" column="48" selection-start-line="229" selection-start-column="48" selection-end-line="229" selection-end-column="48" />
           <folding>
             <element signature="e#0#35#0" expanded="true" />
             <element signature="e#360#2005#0" expanded="false" />
@@ -832,6 +834,14 @@
             <element signature="e#5296#5487#0" expanded="false" />
             <element signature="e#7445#7807#0" expanded="false" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/image_hosting/base.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.64827585" vertical-offset="2768" max-vertical-offset="3655">
+          <caret line="196" column="25" selection-start-line="196" selection-start-column="25" selection-end-line="196" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>
