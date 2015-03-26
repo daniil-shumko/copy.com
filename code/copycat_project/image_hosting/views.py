@@ -3,6 +3,8 @@ from image_hosting.models import Category, Image
 import random
 from image_hosting.forms import UploadForm
 from django.http import HttpResponse
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 
 
 #  category_name must ether pro, funny or other
@@ -120,7 +122,6 @@ def random_image(request):
     try:
         count = Image.objects.count()
         rnd = random.randint(1, count)
-        print rnd
         image_name = Image.objects.get(id=rnd).image.name
     except Image.DoesNotExist:
         return index(request)
@@ -186,28 +187,53 @@ def get_all_voted_images(request):
     return previous_votes
 
 
+@csrf_exempt
 def api(request):
+    cats = Category.objects.all()
+    all_cat_ids = []
+    result_dict = {'success': 'false', 'error': 'Unknown'}
+
+    for cat in cats:
+        all_cat_ids.append(cat.id)
+
     if request.method == 'POST':
         data = request.POST
-        #TODO: make sure that devs send category id's as 1, 2 or 3 ONLY. also in the api.html add category id's dynamically
-        if data['category'] == 'Funny':
-            data['category'] = 2
-        form = UploadForm(data, request.FILES)
-        print request.POST['category']
-        print data['category']
-        category = Category.objects.get(id=data['category'])
-        if category:
-            image = form.save(commit=False)
-            image.views = 0
-            image.up_votes = 0
-            image.down_votes = 0
-            image.save()
-            print "SAVED"
-        #
-        #     #return 'JSON'
-        return render(request, 'image_hosting/api.html')
+
+        if data['category'].isdigit() and (int(data['category']) in all_cat_ids):
+            if len(data['caption']) <= 128:
+                if not request.FILES:
+                    result_dict['error'] = 'No image file in POST'
+                    return JsonResponse(result_dict)
+                else:
+                    form = UploadForm(data, request.FILES)
+                    category = Category.objects.get(id=data['category'])
+
+                    if category:
+                        image = form.save(commit=False)
+                        image.views = 0
+                        image.up_votes = 0
+                        image.down_votes = 0
+                        image.save()
+
+                        del result_dict['error']
+                        result_dict['success'] = 'true'
+                        result_dict['image_url'] = 'http://daniilshumko.pythonanywhere.com/media/'+image.image.name
+                        result_dict['caption'] = image.caption
+                        result_dict['category'] = image.category.name
+                        return JsonResponse(result_dict)
+                    else:
+                        result_dict['error'] = 'Category with that ID does not exist'
+                        return JsonResponse(result_dict)
+
+            else:
+                result_dict['error'] = 'Caption too long'
+                return JsonResponse(result_dict)
+        else:
+            result_dict['error'] = 'Error wrong category id'
+            return JsonResponse(result_dict)
     else:
-        return render(request, 'image_hosting/index.html')
+        context_dict = {'categories': cats}
+        return render(request, 'image_hosting/api.html', context_dict)
 
 
 def remove_image(request, image_name):

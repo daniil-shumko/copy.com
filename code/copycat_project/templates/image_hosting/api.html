@@ -6,5 +6,83 @@
 </head>
 <body>
 <strong>Hello and welcome to copyCAT API</strong>
+
+<div>
+    <h3>List of all categories</h3>
+    <table>
+        <tr>
+            <td>ID</td>
+            <td>Name</td>
+        </tr>
+        {% for category in categories %}
+            <tr>
+                <td>{{ category.id }}</td>
+                <td>{{ category.name }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+</div>
+<br/>
+<strong>How to talk to the API</strong>
+
+<p>To upload images using API, simple make a POST request with a "multipart/form-data" form.<br/>
+    The form should have:<br/>
+    "caption" - with a type="text" and max number of characters should be 128.<br/>
+    "category" - should be one of the category ID's<strong>(not the category name!)</strong> See above table for all
+    categories and their ID's.<br/>
+    "image" - of a type="file" and should not exceed 10mb in size.(Supported image formats are: JPG, JPEG, PNG and
+    GIF)<br/><br/>
+    The POST request should be sent to "http://daniilshumko.pythonanywhere.com/image_hosting/api/"
+</p>
+
+<strong>Responses from the API</strong>
+
+<p>
+    If image has been uploaded successfully you will receive a JSON response with the information about the image you
+    have uploaded.<br/><br/>
+    <strong>{<br/>
+        "success" : "true",<br/>
+        "image_url" : "http://daniilshumko.pythonanywhere.com/media/images/image_name.jpg",<br/>
+        "caption" : "Your caption text",<br/>
+        "category" : "Category name"<br/>
+        }<br/><br/>
+    </strong>
+
+    If there is an error you will receive the following response.<br/>
+    <strong>{<br/>
+        "success" : "false",<br/>
+        "error" : "Error message."<br/>
+        }<br/><br/>
+    </strong>
+</p>
+<br/>
+<br/>
+<strong>Form with POST request example:</strong>
+<p>
+    &ltform enctype="multipart/form-data" id="upload_form" role="form" method="post" action="http://daniilshumko.pythonanywhere.com/image_hosting/api/"
+      style="padding-bottom: 20px"&gt<br/>
+
+    &ltdiv class="control-group required"&gt<br/>
+        &ltlabel class="control-label" for="id_caption"&gtCaption&lt/label&gt<br/>
+        &ltdiv class="controls"&gt<br/>
+            &ltinput id="id_caption" maxlength="128" name="caption" type="text"&gt<br/>
+        &lt/div&gt<br/>
+    &lt/div&gt<br/>
+    &ltdiv class="control-group required"&gt<br/>
+        &ltlabel class="control-label" for="id_category"&gtCategory&lt/label&gt<br/>
+        &ltdiv class="controls"&gt<br/>
+            &ltinput id="id_category" maxlength="128" name="category" type="text"&gt<br/>
+        &lt/div&gt<br/>
+    &lt/div&gt<br/>
+    &ltdiv class="control-group required"&gt<br/>
+        &ltlabel class="control-label" for="id_image"&gtImage&lt/label&gt<br/>
+
+        &ltdiv class="controls"&gt<br/>
+            &ltinput id="id_image" name="image" type="file"&gt<br/>
+        &lt/div&gt<br/>
+    &lt/div&gt<br/>
+    &ltbutton type="submit" name="submit"&gtUPLOAD&lt/button&gt<br/>
+&lt/form&gt<br/>
+</p>
 </body>
 </html>
