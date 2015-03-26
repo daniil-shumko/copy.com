@@ -52,11 +52,18 @@
         function vote(id, vote) {
             $.get('{% url "vote" %}', {image_id: id, vote: vote}, function (data) {
                 if (data == 'already_voted'){
+                    disableButtons(id);
                     alert('You have already voted this image!')
                 }else{
+                    disableButtons(id);
                     $('#id_count_'+id).html(data);
                 }
             });
+        }
+
+        function disableButtons(id){
+            document.getElementById('id_btn_up_'+id).disabled = true;
+            document.getElementById('id_btn_down_'+id).disabled = true;
         }
     </script>
 

@@ -8,12 +8,11 @@ from django.http import HttpResponse
 #  category_name must ether pro, funny or other
 def index(request, category_name=0):
     context_dict = {}
+    context_dict['all_votes'] = get_all_voted_images(request)
 
     # TODO: make ajax so you can show more images when page scrols to the end
     image_list = ''
-
     try:
-        #  category = Category.objects.get(slug=category_name_slug)
         if category_name == 'pro':
             category = Category.objects.get(name='Professional')
             image_list = Image.objects.filter(category=category)
@@ -79,7 +78,8 @@ def upload(request):
 
 # Image View for single image page. Thsi take image name without "images/"
 def view_image(request, image_name):
-    context_dict = {'page_name': 'Image View'}
+    context_dict = {'page_name': 'Image View', 'all_votes': get_all_voted_images(request)}
+
     try:
         image = Image.objects.get(image=image_name)
         image.views += 1
@@ -129,7 +129,6 @@ def random_image(request):
 
 
 def vote_image(request):
-    # TODO: using session check if user has already voted
     image_id = None
     value = None
     votes = ''
@@ -175,6 +174,16 @@ def split_images(images):
 
     # Return the new list
     return chunks
+
+
+def get_all_voted_images(request):
+    previous_votes = request.session.get('all_votes')
+    if not previous_votes:
+        previous_votes = []
+    else:
+        previous_votes = map(int, previous_votes)
+
+    return previous_votes
 
 
 def api(request):
