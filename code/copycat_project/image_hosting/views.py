@@ -251,3 +251,14 @@ def remove_image(request, image_name):
 
 def test(request):
     return render(request, 'api_test/test.html')
+
+
+def error404(request):
+    context_dict = {'all_votes': get_all_voted_images(request)}
+    category = Category.objects.get(name='Funny')
+    image_list = Image.objects.filter(category=category)
+    count_images = image_list.count()
+    rnd = random.randint(0, count_images)
+    context_dict['image'] = image_list[rnd]
+
+    return render(request, 'image_hosting/404.html', context_dict)

@@ -1,0 +1,16 @@
+{% extends 'image_hosting/image_view.html' %}
+
+{% block title %}ERROR 404{% endblock title %}
+
+{% block page_name_block %}ERROR 404{% endblock page_name_block %}
+
+{% block error_block %}
+
+    <div class="alert alert-danger" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Error:</span>
+        The image, page or whatever you are trying to access does not exist. BUT this funny image below does exist :)
+    </div>
+{% endblock error_block %}
+
+{% block fb_block %}{% endblock %}
