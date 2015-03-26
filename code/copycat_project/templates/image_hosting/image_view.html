@@ -50,6 +50,11 @@
                     <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                 </button>
             </div>
+            {% if user.is_authenticated %}
+                <div>
+                    <a href="{% url 'remove' image.image.name %}">REMOVE IMAGE</a>
+                </div>
+            {% endif %}
         </div>
 
         <div class="panel panel-primary">

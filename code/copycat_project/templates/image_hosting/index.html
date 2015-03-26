@@ -18,16 +18,27 @@
                                     </a>
 
                                     <div class="btn-group" role="group" style="width:100%;">
-                                        <button type="button" onclick="vote({{ image.id }}, 'up');" class="btn btn-success" style="width:20%;" {% if image.id in all_votes %}disabled{% endif %} id="id_btn_up_{{ image.id }}">
+                                        <button type="button" onclick="vote({{ image.id }}, 'up');"
+                                                class="btn btn-success" style="width:20%;"
+                                                {% if image.id in all_votes %}disabled{% endif %}
+                                                id="id_btn_up_{{ image.id }}">
                                             <span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>
                                         </button>
                                         <button type="button" class="btn btn-default" style="width:60%;">
                                             <strong id="id_count_{{ image.id }}">{{ image.up_votes }}/{{ image.down_votes }}</strong>
                                         </button>
-                                        <button type="button" onclick="vote({{ image.id }}, 'down');" class="btn btn-danger" style="width:20%;" {% if image.id in all_votes %}disabled{% endif %} id="id_btn_down_{{ image.id }}">
+                                        <button type="button" onclick="vote({{ image.id }}, 'down');"
+                                                class="btn btn-danger" style="width:20%;"
+                                                {% if image.id in all_votes %}disabled{% endif %}
+                                                id="id_btn_down_{{ image.id }}">
                                             <span class="glyphicon glyphicon-thumbs-down" aria-hidden="true"></span>
                                         </button>
                                     </div>
+                                    {% if user.is_authenticated %}
+                                        <div>
+                                            <a href="{% url 'remove' image.image.name %}">REMOVE IMAGE</a>
+                                        </div>
+                                    {% endif %}
                                 </div>
                             </div>
                             <div style="padding-bottom: 20px;"></div>
