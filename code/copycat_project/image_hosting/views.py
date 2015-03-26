@@ -187,4 +187,28 @@ def get_all_voted_images(request):
 
 
 def api(request):
-    return ''
+    if request.method == 'POST':
+        data = request.POST
+        #TODO: make sure that devs send category id's as 1, 2 or 3 ONLY. also in the api.html add category id's dynamically
+        if data['category'] == 'Funny':
+            data['category'] = 2
+        form = UploadForm(data, request.FILES)
+        print request.POST['category']
+        print data['category']
+        category = Category.objects.get(id=data['category'])
+        if category:
+            image = form.save(commit=False)
+            image.views = 0
+            image.up_votes = 0
+            image.down_votes = 0
+            image.save()
+            print "SAVED"
+        #
+        #     #return 'JSON'
+        return render(request, 'image_hosting/api.html')
+    else:
+        return render(request, 'image_hosting/index.html')
+
+
+def test(request):
+    return render(request, 'api_test/test.html')

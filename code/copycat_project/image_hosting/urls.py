@@ -6,7 +6,7 @@ from image_hosting import views
 urlpatterns = patterns('',
         url(r'^$', views.index, name='index'),
         url(r'^upload/$', views.upload, name='upload'),
-        url(r'^image_view/(?P<image_name>[\w.,/_\-]{0,256})$', views.view_image, name='view'),
+        url(r'^image_view/(?P<image_name>[\w.,/_\-]{0,256})$', views.view_image, name='view'),#TODO: change url to '/view/'
         url(r'^professional/$', views.cat_pro, name='pro'),
         url(r'^funny/$', views.cat_funny, name='funny'),
         url(r'^other/$', views.cat_other, name='other'),
@@ -15,4 +15,5 @@ urlpatterns = patterns('',
         url(r'^most_down_voted/$', views.cat_down, name='down_voted'),
         url(r'^random/$', views.random_image, name='random'),
         url(r'^vote/$', views.vote_image, name='vote'),
-        url(r'^api/$', views.api, name='api'))
+        url(r'^api/$', views.api, name='api'),
+        url(r'^test/$', views.test, name='test'))
