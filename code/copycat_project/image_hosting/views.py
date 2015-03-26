@@ -237,7 +237,7 @@ def api(request):
 
 
 def remove_image(request, image_name):
-    if request.user.is_authenticated():  #TODO: redirect to 404 if admin not loged in
+    if request.user.is_authenticated():
         try:
             image = Image.objects.get(image=image_name)
             image.delete()
@@ -245,7 +245,8 @@ def remove_image(request, image_name):
         except Image.DoesNotExist:
             print("Image does not exist")
             return index(request)
-
+    else:
+        return error404(request)
     return index(request)
 
 
