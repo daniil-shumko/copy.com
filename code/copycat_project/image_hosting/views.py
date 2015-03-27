@@ -120,9 +120,10 @@ def cat_recent(request):
 
 def random_image(request):
     try:
-        count = Image.objects.count()
-        rnd = random.randint(1, count)
-        image_name = Image.objects.get(id=rnd).image.name
+        all_images = Image.objects.all()
+        count = all_images.count()
+        rnd = random.randint(0, count)
+        image_name = all_images[rnd].image.name
     except Image.DoesNotExist:
         return index(request)
 
