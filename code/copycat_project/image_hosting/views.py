@@ -218,7 +218,7 @@ def api(request):
 
                         del result_dict['error']
                         result_dict['success'] = 'true'
-                        result_dict['image_url'] = 'http://daniilshumko.pythonanywhere.com/media/'+image.image.name
+                        result_dict['image_url'] = 'http://copycatd7.pythonanywhere.com/media/'+image.image.name
                         result_dict['caption'] = image.caption
                         result_dict['category'] = image.category.name
                         return JsonResponse(result_dict)
