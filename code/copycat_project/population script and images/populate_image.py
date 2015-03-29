@@ -17,7 +17,7 @@ def populate():
     funny_cat = get_cat("Funny")
     other_cat = get_cat("Other")
 
-#TODO: update with new data
+#After running the script dont forget to copy images from 'images' folder to your 'media/images/' folder
 
 #professional category
 
