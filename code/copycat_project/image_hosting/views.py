@@ -7,7 +7,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 
 
-#  category_name must ether pro, funny or other
+#  Index page displays images in a grid. Index view is used to diplay images by categories, just give it a category name.
 def index(request, category_name=0):
     context_dict = {}
     context_dict['all_votes'] = get_all_voted_images(request)
@@ -50,10 +50,6 @@ def index(request, category_name=0):
 def upload(request):
     context_dict = {'page_name': 'Image Upload'}
 
-    # if request.method == 'POST':
-    # if 'form' in request.POST:
-    #         pass
-
     if request.method == 'POST':
         form = UploadForm(request.POST, request.FILES)
 
@@ -78,7 +74,8 @@ def upload(request):
     return render(request, 'image_hosting/upload.html', context_dict)
 
 
-# Image View for single image page. Thsi take image name without "images/"
+# Image View for single image page. This take image name and location in media folder. Example "images/image.jpg"
+# also adds +1 to views for the image
 def view_image(request, image_name):
     context_dict = {'page_name': 'Image View', 'all_votes': get_all_voted_images(request)}
 
@@ -94,30 +91,37 @@ def view_image(request, image_name):
     return render(request, 'image_hosting/image_view.html', context_dict)
 
 
+#  this just calls index view with category name 'pro' which is Professional category
 def cat_pro(request):
     return index(request, 'pro')
 
 
+#  this just calls index view with category name 'funny' which is Funny category
 def cat_funny(request):
     return index(request, 'funny')
 
 
+#  this just calls index view with category name 'other' which is Other category
 def cat_other(request):
     return index(request, 'other')
 
 
+#  this just calls index view with category name 'up' which is Most Up Voted images
 def cat_up(request):
     return index(request, 'up')
 
 
+#  this just calls index view with category name 'down' which is Most Down Voted images
 def cat_down(request):
     return index(request, 'down')
 
 
+#  this just calls index view with category name 'recent' which is Most Recent images
 def cat_recent(request):
     return index(request, 'recent')
 
 
+# gets a random image from database and call view_image view with the image name to be displayed
 def random_image(request):
     try:
         all_images = Image.objects.all()
@@ -130,6 +134,7 @@ def random_image(request):
     return view_image(request, image_name)
 
 
+#  this is called by AJAX and gets image id and type of vote from GET request
 def vote_image(request):
     image_id = None
     value = None
@@ -163,10 +168,11 @@ def vote_image(request):
     return HttpResponse(votes)
 
 
+#  this is used to split a list of images into groups of two to display images in a grid on the index page and category pages
 def split_images(images):
     chunk = []
     chunks = []
-    n = 2  # changing this number will make images to display in multiple colums on the index page
+    n = 2  # changing this number will allow images to display in multiple columns on the index page(html will need to be adjusted)
 
     for x in range(0, len(images), n):
         # Extract n elements
@@ -178,6 +184,7 @@ def split_images(images):
     return chunks
 
 
+#  gets a list of images ids that user has voted for. This is stored on server using session cookie
 def get_all_voted_images(request):
     previous_votes = request.session.get('all_votes')
     if not previous_votes:
@@ -188,6 +195,8 @@ def get_all_voted_images(request):
     return previous_votes
 
 
+#  api that return a html page if no POST request been received. Otherwise checks the POST request
+# and uploads an image to the database and responses with JSON
 @csrf_exempt
 def api(request):
     cats = Category.objects.all()
@@ -237,6 +246,8 @@ def api(request):
         return render(request, 'image_hosting/api.html', context_dict)
 
 
+#  this feature is strictly for admins only. If you login using '/admin/' link you will see a 'REMOVE IMAGE'
+# link under every image which calls this function and allows you to remove the image from the database
 def remove_image(request, image_name):
     if request.user.is_authenticated():
         try:
@@ -251,10 +262,13 @@ def remove_image(request, image_name):
     return index(request)
 
 
+#  test for the API. for demo only!
 def test(request):
     return render(request, 'api_test/test.html')
 
 
+#  When error 404 occurs this function is called. This gets a random image from 'Funny' category and displays Image View
+# page with error message
 def error404(request):
     context_dict = {'all_votes': get_all_voted_images(request)}
     category = Category.objects.get(name='Funny')
