@@ -1,5 +1,5 @@
 from django.test import TestCase
-from datetime import *
+from django.core.urlresolvers import reverse
 from image_hosting.models import Category, Image
 
 
@@ -51,3 +51,18 @@ class ImageMethodTests(TestCase):
         image.save()
         self.assertEqual((image.down_votes == 11), True)
 
+class IndexViewTests(TestCase):
+
+    def test_index_view_with_no_images(self):
+        response = self.client.get(reverse('index'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "There are no image present.")
+        self.assertQuerysetEqual(response.context['images'], [])
+
+class UploadViewTests(TestCase):
+    def test_upload_view(self):
+        response = self.client.get(reverse('upload'))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, "Image Upload")
+
+        self.assertQuerysetEqual(response.context['page_name'], [])
